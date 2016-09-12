@@ -1,6 +1,6 @@
 # Esittelysivu
 
-**Llinkkejä:**
+**Linkkejä:**
 
 * [Linkki sovellukseeni](http://tokito.users.cs.helsinki.fi/f1_database/)
 * [Linkki dokumentaatiooni](https://github.com/ConstantKrieg/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
