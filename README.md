@@ -2,9 +2,11 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
-* [Linkki dokumentaatiooni](https://www.github.com)
+* [Linkki sovellukseeni](http://tokito.users.cs.helsinki.fi/f1_database/)
+* [Linkki dokumentaatiooni](/doc/dokumentaatio.pdf)
 
 ## Työn aihe
 
-Aihekuvaus [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+###Formula 1 tietokanta
+
+Toteutetaan web-pohjainen Formula 1 aiheinen tietokantasovellus. Tietokannassa on tämänhetkiset kuskit, tallit sekä radat. Sillä on myös lista ylläpitäjistä jotka kirjautuvat sivulle erikseen. Ylläpitäjä voi lisätä, muokata sekä poistaa tietoa tietokannasta. Tavallinen käyttäjä voi vapaasti selata tietokantaa sekä hakea sivulta haluamaansa tietoa.
