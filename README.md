@@ -3,7 +3,7 @@
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://tokito.users.cs.helsinki.fi/f1_database/)
-* [Linkki dokumentaatiooni](/doc/dokumentaatio.pdf)
+* [Linkki dokumentaatiooni](https://github.com/ConstantKrieg/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 
 ## Työn aihe
 
