@@ -7,7 +7,7 @@
 
     <title>
       {% block title %}
-        Tietokantasovellus
+        F1 Database
       {% endblock %}
     </title>
 
@@ -33,13 +33,20 @@
             <span class="icon-bar"></span>
           </button>
           <!-- Sovelluksen nimi -->
-          <a class="navbar-brand" href="{{base_path}}">Tsoha Bootstrap</a>
+          <a class="navbar-brand" href="{{base_path}}">Formula 1 database</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="nav navbar-nav">
             <!-- Navigaation linkit -->
-            <li><a href="{{base_path}}">Etusivu</a></li>
+            <li><a href="{{base_path}}">Front page</a></li>
+            <li><a href="{{base_path}}">Drivers</a></li>
+            <li><a href="{{base_path}}">Teams</a></li>
+            <li><a href="{{base_path}}">Tracks</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="login">Log in</a></li>
           </ul>
         </div>
       </div>

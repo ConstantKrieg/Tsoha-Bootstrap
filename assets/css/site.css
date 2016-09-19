@@ -1,10 +1,61 @@
 #main-container{
-  max-width: 1200px;
+  max-width: 1920px;
   padding: 10px 25px;
   margin: 0px auto;
+
 }
 
 .navbar .container-fluid{
-  max-width: 1200px;
+  max-width: 1980px;
   margin: 0px auto;
+  background-color: rgb(61,61,61);
+  font-color: rgb(255,255,255);
 }
+
+body{
+
+	background-image: url("background.jpg");
+}
+
+nav{
+	background-color: rgb(61,61,61);
+}
+
+
+figure.overlay{
+	background:  #660000;
+  float: left;
+  margin: 20px;
+  position: relative;
+  top: 200px;
+  left: 320px;
+  text-align: center;
+
+}
+
+
+
+figure.overlay figcaption{
+position: absolute;
+top: 40%;
+left: 35%;
+color: white;
+}
+
+figure.overlay figcaption h2 {
+  font-weight: 600;
+  font-family: 'Impact', sans-serif;
+
+
+
+}
+
+figure.overlay img{
+  opacity: 0.4;
+  position: relative;
+}
+
+figure.overlay:hover img, figure.overlay.hover img{
+  opacity: 1;
+}
+
