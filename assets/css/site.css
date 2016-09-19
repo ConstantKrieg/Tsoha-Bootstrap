@@ -21,6 +21,30 @@ nav{
 	background-color: #660000;
 }
 
+form.loginform{
+  position: relative;
+  left: 40%;
+  top: 200px;
+}
+
+#loginotsikko{
+position: relative;
+left: 45%;
+color: white;
+font-weight: 600;
+font-family: 'Impact', sans-serif;
+}
+
+
+
+#login{
+  max-width: 340px;
+}
+
+
+#loginlabel{
+  color: white;
+}
 
 figure.overlay{
 	background:  #660000;
