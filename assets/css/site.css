@@ -18,7 +18,7 @@ body{
 }
 
 nav{
-	background-color: rgb(61,61,61);
+	background-color: #660000;
 }
 
 
@@ -28,11 +28,17 @@ figure.overlay{
   margin: 20px;
   position: relative;
   top: 200px;
-  left: 320px;
-  text-align: center;
+  left: 16%;
 
 }
 
+
+#rcorners {
+    border-radius: 40px 40px;
+    
+    padding: 20px; 
+    
+}
 
 
 figure.overlay figcaption{
