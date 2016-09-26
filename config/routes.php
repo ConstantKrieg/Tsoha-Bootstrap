@@ -9,7 +9,7 @@
   });
 
   $routes->get('/drivers', function() {
-  	HelloWorldController::driver_list();
+  	DriverController::index();
   });
 
   $routes->get('/teams', function() {
@@ -21,8 +21,8 @@
   	HelloWorldController::team_page();
   });
 
-  $routes->get('/drivers/1', function() {
-  	HelloWorldController::driver_page();
+  $routes->get('/drivers/:id', function($num) {
+  	DriverController::show($num);
   });
 
 

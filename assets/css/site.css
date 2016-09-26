@@ -16,8 +16,8 @@ body{
 
     background-image: url("background.jpg");
     background-image: center fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
+    
+    background-repeat: repeat;
     
 }
 
@@ -89,5 +89,10 @@ figure.overlay img{
 
 figure.overlay:hover img, figure.overlay.hover img{
     opacity: 1;
+}
+
+.otsikko{
+
+    color: white;
 }
 
