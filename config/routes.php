@@ -21,14 +21,20 @@
   	HelloWorldController::team_page();
   });
 
+  
+
+
+  $routes->post('/drivers', function(){
+      DriverController::store();
+  });
+  
+  $routes->get('/drivers/new', function(){
+      DriverController::create(); 
+  });
+    
+
   $routes->get('/drivers/:id', function($num) {
   	DriverController::show($num);
-  });
-
-
-
-  $routes->get('/drivers/1/edit', function() {
-  	HelloWorldController::driver_edit();
   });
 
   $routes->get('/teams/1/edit', function() {

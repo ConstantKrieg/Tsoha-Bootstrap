@@ -4,7 +4,7 @@
 <h1 class="otsikko">Drivers</h1>
 
 <p>
-	<a href="#" class="btn btn-success">Add driver</a>
+	<a href="{{base_path}}/drivers/new" class="btn btn-success">Add driver</a>
 </p>
 
 
@@ -18,7 +18,7 @@
 	<tbody>
 	{% for driver in drivers%}
 		<tr>
-		  <td><a href="{{base_path}}/drivers/{{driver.number}}">{{driver.name}}</td>
+		  <td><a href="{{base_path}}/drivers/{{driver.num}}">{{driver.name}}</td>
 		  <td>{{driver.team_id}}</td>
 		  <td>{{driver.num}}</td>
 		  <td><a class="btn btn-danger btn-sm" href="{{base_path}}/driver/{{driver.number}}/edit">Edit</a></td>

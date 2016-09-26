@@ -62,5 +62,12 @@
 
         return null;
     }
+    
+    
+    public function save(){
+        $query = DB::connection()->prepare('INSERT INTO DRIVER (num, team_id, name, wins, championships) VALUES (:num, :team_id, :name, :wins, :championships)');
+        $query->execute(array('num' => $this->num, 'team_id' => $this->team_id, 'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships));
+        
+    }
 }
 
