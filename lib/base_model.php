@@ -25,5 +25,18 @@
 
       return $errors;
     }
+    
+    public function validate_string_length($string, $length){
+        $errors = array();
+        
+        if($string == '' || $string == null){
+            $errors[] = 'Name cannot be empty!';
+        }
+        
+        if(strlen($string) <  3){
+            $errors[] = 'Name has to be at least three characters!';
+        }
+        return $errors;
+    }
 
   }

@@ -24,7 +24,7 @@ class DriverController extends BaseController {
         
         $params = $_POST;
         
-        Kint::dump($params);
+      
         
         $driver = new Driver(array(
             'num' => $params['num'],
