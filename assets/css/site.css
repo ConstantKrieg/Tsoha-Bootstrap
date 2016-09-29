@@ -16,19 +16,13 @@ body{
 
     background-image: url("background.png");
     background-image: center fixed;
-    
-    background-repeat: repeat;
-    
+    background-repeat: repeat;  
 }
-
-
 
 
 .tableNames{
     color: white;
 }
-
-
 
 #login{
     max-width: 340px;
