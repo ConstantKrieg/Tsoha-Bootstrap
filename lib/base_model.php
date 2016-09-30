@@ -25,5 +25,38 @@
 
       return $errors;
     }
+    
+    public function validate_string(){
+        $errors = array();
+        
+        if($this->name == '' || $this->name == null){
+            $errors[] = 'Name cannot be empty!';
+        }
+        
+        if(strlen($this->name) <  3 || strlen($string) > 99){
+            $errors[] = 'Name has to be at least three characters and cannot be over 100 characters!';
+        }
+        return $errors;
+    }
+    
+    
+    public function validate_number(){
+        $errors = array();
+        
+        if($this->num > 99 || $this->num < 1 || $this->num == null){
+            $errors[] = 'Number has to be between 1 and 99!';
+        }
+        
+        if(!is_numeric($this->num)){
+            $errors[] = 'A number is required!';
+        }
+        
+        return errors;
+    }
+    
+  
+        
+        
+    
 
   }

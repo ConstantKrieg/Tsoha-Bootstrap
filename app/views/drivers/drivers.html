@@ -4,27 +4,27 @@
 <h1 class="otsikko">Drivers</h1>
 
 <p>
-	<a href="{{base_path}}/drivers/new" class="btn btn-success">Add driver</a>
+    <a href="{{base_path}}/drivers/new" class="btn btn-success">Add driver</a>
 </p>
 
 
 <table class="table table-hover">
-	<thead class="otsikko">
-		<th>Name</th>
-		<th>Team</th>
-		<th>Number</th>
-	</thead>
+    <thead class="tableNames">
+    <th>Name</th>
+    <th>Team</th>
+    <th>Number</th>
+</thead>
 
-	<tbody>
-	{% for driver in drivers%}
-		<tr>
-		  <td><a href="{{base_path}}/drivers/{{driver.num}}">{{driver.name}}</td>
-		  <td>{{driver.team_id}}</td>
-		  <td>{{driver.num}}</td>
-		  <td><a class="btn btn-danger btn-sm" href="{{base_path}}/driver/{{driver.number}}/edit">Edit</a></td>
-		</tr>
-	{% endfor %}
-	</tbody>
+<tbody  class="tableNames">
+    {% for driver in drivers%}
+    <tr>
+        <td><a href="{{base_path}}/drivers/{{driver.num}}">{{driver.name}}</td>
+        <td>{{driver.team_id}}</td>
+        <td>{{driver.num}}</td>
+        <td><a class="btn btn-danger btn-sm" href="{{base_path}}/driver/{{driver.number}}/edit">Edit</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
 
 
 </table>

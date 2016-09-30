@@ -13,6 +13,7 @@
 
     public function __construct($attributes){
         parent::__construct($attributes);
+        $this->validators = array('validate_name', 'validate_number');
     }
 
 
@@ -69,5 +70,6 @@
         $query->execute(array('num' => $this->num, 'team_id' => $this->team_id, 'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships));
         
     }
-}
+    
 
+ }

@@ -16,27 +16,13 @@ body{
 
     background-image: url("background.png");
     background-image: center fixed;
-    
-    background-repeat: repeat;
-    
+    background-repeat: repeat;  
 }
 
 
-form.loginform{
-    position: relative;
-    left: 40%;
-    top: 200px;
-}
-
-#loginotsikko{
-    position: relative;
-    left: 45%;
+.tableNames{
     color: white;
-    font-weight: 600;
-    font-family: 'Impact', sans-serif;
 }
-
-
 
 #login{
     max-width: 340px;
@@ -59,6 +45,7 @@ figure.overlay{
 }
 
 
+
 #rcorners {
     border-radius: 10px 10px;
 
@@ -78,9 +65,24 @@ figure.overlay figcaption h2 {
     font-weight: 600;
     font-family: 'Impact', sans-serif;
 
-
-
 }
+
+
+.form-control{
+    max-width: 400px;
+}
+
+.form-group{
+    position: relative;
+    left: 37%;
+    color: white;
+}
+
+.form-button{
+    position: relative;
+    left: 55%;
+}
+
 
 figure.overlay img{
     opacity: 0.4;
@@ -92,7 +94,13 @@ figure.overlay:hover img, figure.overlay.hover img{
 }
 
 .otsikko{
-
+    position: relative;
+    left: 41%;
     color: white;
+    font-weight: bold;
+    padding: 20px;
+    background-color: #660000;
+    max-width: 230px;
+    border-radius: 10px 10px;
 }
 
