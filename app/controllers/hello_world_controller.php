@@ -11,11 +11,17 @@
 
     public static function sandbox(){
       // Testaa koodiasi täällä 
-      $schumacher = Driver::find(1);
-      $drivers = Driver::all();
+      $kuskimies = new Driver(array(
+        'num' => 30,
+        'name' => 'ak',
+        'wins' => 101,
+        'championships' => -3,
+        'team_id' => 3
+        ));
 
-      Kint::dump($drivers);
-      Kint::dump($schumacher);
+      $errors = $kuskimies->errors();
+
+      Kint::dump($errors);
 
       //View::make('helloworld.html');
     }

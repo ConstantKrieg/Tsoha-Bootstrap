@@ -13,7 +13,7 @@
 
     public function __construct($attributes){
         parent::__construct($attributes);
-        $this->validators = array('validate_name', 'validate_number');
+        $this->validators = array('validate_name', 'validate_num', 'validate_wins', 'validate_championships');
     }
 
 
@@ -69,6 +69,37 @@
         $query = DB::connection()->prepare('INSERT INTO DRIVER (num, team_id, name, wins, championships) VALUES (:num, :team_id, :name, :wins, :championships)');
         $query->execute(array('num' => $this->num, 'team_id' => $this->team_id, 'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships));
         
+    }
+
+
+
+
+    public function validate_name(){
+        $errors = array();
+        $errors = parent::validate_string($this->name, 40);
+
+        return $errors;
+    }
+
+    public function validate_num(){
+        $errors = array();
+        $errors = parent::validate_number($this->num, 99);
+
+        return $errors;
+    }
+
+    public function validate_wins(){
+        $errors = array();
+        $errors = parent::validate_number($this->wins, 99);
+
+        return $errors;
+    }
+
+    public function validate_championships(){
+        $errors = array();
+        $errors = parent::validate_number($this->championships, 99);
+
+        return $errors;
     }
     
 

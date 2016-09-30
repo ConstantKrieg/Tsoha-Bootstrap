@@ -20,38 +20,47 @@
       $errors = array();
 
       foreach($this->validators as $validator){
+        
+        $method_name = $validator;
+        $validator_errors = array();
+        $validator_errors = $this->{$method_name}();
+
+        $errors = array_merge($errors, $validator_errors);
         // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
       }
 
       return $errors;
     }
     
-    public function validate_string(){
+    public function validate_string($string, $length){
         $errors = array();
         
-        if($this->name == '' || $this->name == null){
+        if($string == '' || $string == null){
             $errors[] = 'Name cannot be empty!';
         }
         
-        if(strlen($this->name) <  3 || strlen($string) > 99){
+        if(strlen($string) <  3 || strlen($string) > $length){
             $errors[] = 'Name has to be at least three characters and cannot be over 100 characters!';
         }
         return $errors;
     }
     
     
-    public function validate_number(){
+    public function validate_number($number, $max){
         $errors = array();
         
-        if($this->num > 99 || $this->num < 1 || $this->num == null){
+        
+        if(!is_numeric($number)){
+            $errors[] = 'A number is required!';
+        }
+
+        if($number > $max || $number < 1 || $number == null){
             $errors[] = 'Number has to be between 1 and 99!';
         }
         
-        if(!is_numeric($this->num)){
-            $errors[] = 'A number is required!';
-        }
         
-        return errors;
+        
+        return $errors;
     }
     
   
