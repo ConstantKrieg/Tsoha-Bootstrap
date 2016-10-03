@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+  
+
+  <h1>Edit</h1>
+
+
+  <form method="post" action="http://tokito.users.cs.helsinki.fi/f1_database/drivers/{{Driver.id}}/edit" style="display: inline-block;">
+  	<div class="form-group">
+  		<label>Name</label>
+  		<input type="text" class="form-control">
+  	</div>
+
+    <div class="form-group">
+      <label>Championships</label>
+      <input type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Race wins</label>
+      <input type="text" class="form-control">
+    </div>
+
+
+
+    <div class="form-group">
+      <label>Teams</label>
+      <input type="text" class="form-control">
+    </div>
+
+  	<button type="submit" class="btn btn-danger">Save</button>
+
+  </form>
+
+
+
+
+{% endblock %}

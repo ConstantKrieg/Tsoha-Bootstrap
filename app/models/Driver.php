@@ -8,7 +8,7 @@
 
  class Driver extends BaseModel{
     
-    public $num, $name, $wins, $championships, $team_id;
+    public $id, $num, $name, $wins, $championships;
 
 
     public function __construct($attributes){
@@ -29,11 +29,11 @@
 
         foreach ($rows as $row) {
             $drivers[] = new Driver(array(
+                'id' => $row['id'],
                 'num' => $row['num'],
                 'name' => $row['name'],
                 'wins' => $row['wins'],
-                'championships' => $row['championships'],
-                'team_id' => $row['team_id']
+                'championships' => $row['championships']
             ));
         }
 
@@ -41,19 +41,19 @@
     }
 
 
-    public static function find($num){
-        $query = DB::connection()->prepare('SELECT * FROM Driver WHERE num = :num LIMIT 1');
-        $query->execute(array('num' => $num));
+    public static function find($id){
+        $query = DB::connection()->prepare('SELECT * FROM Driver WHERE id = :id LIMIT 1');
+        $query->execute(array('id' => $id));
         $row = $query->fetch();
 
 
         if($row){
             $driver = new Driver(array(
+                'id' => $row['id'],
                 'num' => $row['num'],
                 'name' => $row['name'],
                 'wins' => $row['wins'],
-                'championships' => $row['championships'],
-                'team_id' => $row['team_id']
+                'championships' => $row['championships']
                 ));
 
 
@@ -66,9 +66,22 @@
     
     
     public function save(){
-        $query = DB::connection()->prepare('INSERT INTO DRIVER (num, team_id, name, wins, championships) VALUES (:num, :team_id, :name, :wins, :championships)');
-        $query->execute(array('num' => $this->num, 'team_id' => $this->team_id, 'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships));
+        $query = DB::connection()->prepare('INSERT INTO DRIVER (num, name, wins, championships) VALUES (:num, :name, :wins, :championships) RETURNING id ');
+        $query->execute(array('num' => $this->num,  'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships));
+
+        $row = $query->fetch();
+        $this->id = $row['id'];
         
+    }
+
+    public function update(){
+        $query = DB::connection()->prepare('UPDATE DRIVER SET name = :name, wins = :wins, championships = :championships  WHERE id = :id');
+        $query->execute(array('id' => $this->id, 'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships));
+    }
+
+    public function destroy(){
+        $query = DB::connection()->prepare('DELETE From Driver WHERE Driver.id = :id');
+        $query->execute(array('id' => $this->id));
     }
 
 

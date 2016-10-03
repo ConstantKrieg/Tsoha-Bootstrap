@@ -87,6 +87,7 @@ figure.overlay figcaption h2 {
 figure.overlay img{
     opacity: 0.4;
     position: relative;
+    
 }
 
 figure.overlay:hover img, figure.overlay.hover img{
@@ -98,9 +99,5 @@ figure.overlay:hover img, figure.overlay.hover img{
     left: 41%;
     color: white;
     font-weight: bold;
-    padding: 20px;
-    background-color: #660000;
-    max-width: 230px;
-    border-radius: 10px 10px;
 }
 

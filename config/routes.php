@@ -22,6 +22,17 @@
   });
 
   
+  $routes->get('/drivers/:id/edit', function($id){
+    DriverController::edit($id);
+  });
+
+  $routes->post('/drivers/:id/edit', function($id){
+    DriverController::update($id);
+  });
+
+   $routes->post('/drivers/:id/destroy', function($id){
+    DriverController::destroy($id);
+  });
 
 
   $routes->post('/drivers', function(){
@@ -33,8 +44,8 @@
   });
     
 
-  $routes->get('/drivers/:id', function($num) {
-  	DriverController::show($num);
+  $routes->get('/drivers/:id', function($id) {
+  	DriverController::show($id);
   });
 
   $routes->get('/teams/1/edit', function() {
@@ -43,7 +54,11 @@
 
 
   $routes->get('/login', function() {
-  	HelloWorldController::login();
+  	UserController::login();
+  });
+
+  $routes->post('/login', function(){
+    UserController::handel_login();
   });
 
 

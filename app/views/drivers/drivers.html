@@ -18,10 +18,10 @@
 <tbody  class="tableNames">
     {% for driver in drivers%}
     <tr>
-        <td><a href="{{base_path}}/drivers/{{driver.num}}">{{driver.name}}</td>
+        <td><a href="{{base_path}}/drivers/{{driver.id}}">{{driver.name}}</td>
         <td>{{driver.team_id}}</td>
         <td>{{driver.num}}</td>
-        <td><a class="btn btn-danger btn-sm" href="{{base_path}}/driver/{{driver.number}}/edit">Edit</a></td>
+        <td><a class="btn btn-danger btn-sm" href="{{base_path}}/drivers/{{driver.num}}/edit">Edit</a></td>
     </tr>
     {% endfor %}
 </tbody>

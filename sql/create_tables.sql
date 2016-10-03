@@ -9,7 +9,7 @@ CREATE TABLE Member(
 
 
 CREATE TABLE Team(
-	id integer PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	name varchar(25) NOT NULL,
 	wins integer,
 	championships integer
@@ -18,8 +18,8 @@ CREATE TABLE Team(
 
 
 CREATE TABLE Driver(
-	num integer PRIMARY KEY,
-	team_id integer REFERENCES Team(id),
+	id SERIAL PRIMARY KEY,
+	num integer ,
 	name varchar(30) NOT NULL,
 	wins integer,
 	championships integer
@@ -32,16 +32,11 @@ CREATE TABLE Track(
 	name varchar(40) NOT NULL
 );
 
-
-CREATE TABLE Race(
+CREATE TABLE Driverteam(
 	id SERIAL PRIMARY KEY,
-	track_id integer REFERENCES Track(id),
-	datum date
+	team_id integer REFERENCES Team(id),
+	driver_id integer REFERENCES Driver(id)
 );
 
-CREATE TABLE Placement(
-	rank integer PRIMARY KEY,
-	driver_id integer REFERENCES Driver(num),
-	race_id integer REFERENCES Track(id)
-);
+
 
