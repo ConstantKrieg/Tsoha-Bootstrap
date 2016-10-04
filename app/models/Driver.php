@@ -8,7 +8,7 @@
 
  class Driver extends BaseModel{
     
-    public $id, $num, $name, $wins, $championships;
+    public $id, $num, $name, $wins, $championships, $user_id;
 
 
     public function __construct($attributes){

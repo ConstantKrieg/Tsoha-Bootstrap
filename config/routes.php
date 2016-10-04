@@ -58,7 +58,7 @@
   });
 
   $routes->post('/login', function(){
-    UserController::handel_login();
+    UserController::handle_login();
   });
 
 

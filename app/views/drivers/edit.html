@@ -1,36 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
-  
-
-  <h1>Edit</h1>
 
 
-  <form method="post" action="http://tokito.users.cs.helsinki.fi/f1_database/drivers/{{Driver.id}}/edit" style="display: inline-block;">
-  	<div class="form-group">
-  		<label>Name</label>
-  		<input type="text" class="form-control">
-  	</div>
+<h1>Edit</h1>
 
+
+{% if errors %}
+<div class="alert alert-danger">
+    <ul>
+        {% for error in errors %}
+        <li>{{error}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+
+<form method="post" action="http://tokito.users.cs.helsinki.fi/f1_database/drivers/{{Driver.id}}/edit" style="display: inline-block;">
     <div class="form-group">
-      <label>Championships</label>
-      <input type="text" class="form-control">
+        <label>Name</label>
+        <input type="text" name="name" value="{{attributes.name}}" class="form-control">
     </div>
 
     <div class="form-group">
-      <label>Race wins</label>
-      <input type="text" class="form-control">
+        <label>Championships</label>
+        <input type="text"name="championships" value="{{attributes.championships}}" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Race wins</label>
+        <input type="text" name="wins" value="{{attributes.wins}}" class="form-control">
     </div>
 
 
 
     <div class="form-group">
-      <label>Teams</label>
-      <input type="text" class="form-control">
+        <label>Number</label>
+        <input type="text" name="championships" value="{{attributes.num}}" class="form-control">
+        <button type="submit" class="btn btn-danger">Save</button>
     </div>
 
-  	<button type="submit" class="btn btn-danger">Save</button>
+    
 
-  </form>
+</form>
 
 
 

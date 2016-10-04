@@ -19,6 +19,7 @@ CREATE TABLE Team(
 
 CREATE TABLE Driver(
 	id SERIAL PRIMARY KEY,
+        user_id
 	num integer ,
 	name varchar(30) NOT NULL,
 	wins integer,

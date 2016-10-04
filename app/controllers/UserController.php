@@ -19,7 +19,7 @@ class UserController extends BaseController{
 		} else {
 			$_SESSION['user'] = $user->id;
 
-			Redirect::to('/', array('message' => 'Welcome back' .  $user.name . '!'));
+			Redirect::to('/drivers');
 		}
 
 	}
