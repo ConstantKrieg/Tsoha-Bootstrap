@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
+
+    {% if user_logged_in %}
+        <h5 class="otsikko">Logged in as {{user_logged_in.name}}</h5>
+    {% endif %}  
+
+    {% if message %}  
+        <label class="label label-danger">{{message}}</label>
+    {% endif %}    
+
 <h1 class="otsikko">Drivers</h1>
 
 <p>
@@ -19,7 +28,7 @@
     {% for driver in drivers%}
     <tr>
         <td><a href="{{base_path}}/drivers/{{driver.id}}">{{driver.name}}</td>
-        <td>{{driver.team_id}}</td>
+        <td>{{driver.team_name}}</td>
         <td>{{driver.num}}</td>
         <td><a class="btn btn-danger btn-sm" href="{{base_path}}/drivers/{{driver.num}}/edit">Edit</a></td>
     </tr>

@@ -8,7 +8,7 @@
 
  class Driver extends BaseModel{
     
-    public $id, $num, $name, $wins, $championships, $user_id;
+    public $id, $num, $name, $wins, $championships, $user_id, $team_name;
 
 
     public function __construct($attributes){
@@ -19,9 +19,8 @@
 
     public static function all(){
 
-        $query = DB::connection()->prepare('SELECT * FROM Driver');
-
-        $query->execute();
+        $query = DB::connection()->prepare('SELECT * FROM Driver WHERE user_id = :user_id');
+        $query->execute(array('user_id' => $_SESSION['user']));
 
         $rows = $query->fetchAll();
         $drivers = array();
@@ -33,12 +32,16 @@
                 'num' => $row['num'],
                 'name' => $row['name'],
                 'wins' => $row['wins'],
-                'championships' => $row['championships']
+                'championships' => $row['championships'],
+                'team_name' => $row['team_name'],
+                'user_id' => $row['user_id']
             ));
         }
 
         return $drivers;
     }
+
+    
 
 
     public static function find($id){
@@ -53,7 +56,9 @@
                 'num' => $row['num'],
                 'name' => $row['name'],
                 'wins' => $row['wins'],
-                'championships' => $row['championships']
+                'championships' => $row['championships'],
+                'team_name' => $row['team_name'],
+                'user_id' => $row['user_id']
                 ));
 
 
@@ -66,13 +71,19 @@
     
     
     public function save(){
-        $query = DB::connection()->prepare('INSERT INTO DRIVER (num, name, wins, championships) VALUES (:num, :name, :wins, :championships) RETURNING id ');
-        $query->execute(array('num' => $this->num,  'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships));
+        
+        $query = DB::connection()->prepare('INSERT INTO DRIVER (num, name, wins, championships, team_name, user_id) VALUES (:num, :name, :wins, :championships, :team_name, :user_id) RETURNING id');
+        $query->execute(array('num' => $this->num,  'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships, 'team_name' => $this->team_name, 'user_id' =>$this->user_id));
 
         $row = $query->fetch();
         $this->id = $row['id'];
+
         
+       
     }
+
+
+
 
     public function update(){
         $query = DB::connection()->prepare('UPDATE DRIVER SET name = :name, wins = :wins, championships = :championships  WHERE id = :id');

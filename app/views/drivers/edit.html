@@ -19,24 +19,24 @@
 <form method="post" action="http://tokito.users.cs.helsinki.fi/f1_database/drivers/{{Driver.id}}/edit" style="display: inline-block;">
     <div class="form-group">
         <label>Name</label>
-        <input type="text" name="name" value="{{attributes.name}}" class="form-control">
+        <input type="text" name="name" value="{{driver.name}}" class="form-control">
     </div>
 
     <div class="form-group">
         <label>Championships</label>
-        <input type="text"name="championships" value="{{attributes.championships}}" class="form-control">
+        <input type="text"name="championships" value="{{driver.championships}}" class="form-control" name="championships">
     </div>
 
     <div class="form-group">
         <label>Race wins</label>
-        <input type="text" name="wins" value="{{attributes.wins}}" class="form-control">
+        <input type="text" name="wins" value="{{driver.wins}}" class="form-control">
     </div>
 
 
 
     <div class="form-group">
         <label>Number</label>
-        <input type="text" name="championships" value="{{attributes.num}}" class="form-control">
+        <input type="text" name="num" value="{{driver.num}}" class="form-control">
         <button type="submit" class="btn btn-danger">Save</button>
     </div>
 

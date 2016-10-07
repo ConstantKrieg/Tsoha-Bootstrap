@@ -53,12 +53,7 @@
         if(!is_numeric($number)){
             $errors[] = 'A number is required!';
         }
-
-        if($number > $max || $number < 1 || $number == null){
-            $errors[] = 'Number has to be between 1 and 99!';
-        }
-        
-        
+                
         
         return $errors;
     }
