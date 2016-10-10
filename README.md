@@ -28,6 +28,13 @@
 
 Toteutetaan web-pohjainen Formula 1 aiheinen tietokantasovellus. Tietokannassa on tämänhetkiset kuskit, tallit sekä radat. Sillä on myös lista ylläpitäjistä jotka kirjautuvat sivulle erikseen. Jokainen käyttäjä joutuu kirjautumaan sisään, jonka jälkeen he ovat vapaita lisäämään, poistamaan sekä muokkaamaan käyttäjäkohtaista tietokantaansa.
 
+
+
+
+
+
+
+
 MIT License
 
 Copyright (c) [year] [fullname]
