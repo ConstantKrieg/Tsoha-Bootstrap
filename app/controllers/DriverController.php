@@ -6,8 +6,15 @@ class DriverController extends BaseController {
 
         self::check_logged_in();
         $user = self::get_user_logged_in();
-
-        $drivers = Driver:: all();
+        
+        $params = $_GET;
+        $options = array('user_id' => $user->id);
+        
+        if(isset($params['search'])){
+            $options['search'] = $params['search'];
+        }
+        
+        $drivers = Driver:: all($options);
         View::make('drivers/drivers.html', array('drivers' => $drivers, 'user_logged_in' => $user));
     }
 
@@ -33,8 +40,13 @@ class DriverController extends BaseController {
 
     public static function update($id) {
         $params = $_POST;
-
+        
+        
+        $kuski = Driver::find($id);
+        $id = $kuski->id;
+        
         $attributes = array(
+            'id' => $id,
             'name' => $params['name'],
             'wins' => $params['wins'],
             'championships' => $params['championships'],
@@ -53,7 +65,8 @@ class DriverController extends BaseController {
             View::make('/drivers/edit.html', array('errors' => $errors, 'attributes' => $attributes));
         } else {
             $driver->update();
-            Redirect::to('/drivers/' , array('message' => 'Driver updated!'));
+            
+            Redirect::to('/drivers/' . $driver->id , array('message' => 'Driver updated!'));
         }
    }
 

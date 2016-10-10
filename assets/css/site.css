@@ -44,7 +44,9 @@ figure.overlay{
 
 }
 
-
+ul li{
+    color: white;
+}
 
 #rcorners {
     border-radius: 10px 10px;

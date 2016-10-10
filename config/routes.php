@@ -8,9 +8,7 @@
     HelloWorldController::sandbox();
   });
 
-  $routes->get('/drivers', function() {
-  	DriverController::index();
-  });
+  
 
   $routes->get('/teams', function(){
     TeamController::teams();
@@ -30,6 +28,9 @@
     DriverController::update($id);
   });
 
+  $routes->get('/drivers', function() {
+  	DriverController::index();
+  });
   
 
   $routes->get('teams/:id/edit', function($id){
@@ -75,6 +76,8 @@
   $routes->get('/drivers/:id', function($id) {
   	DriverController::show($id);
   });
+  
+  
 
  
 
