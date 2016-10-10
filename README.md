@@ -3,7 +3,7 @@
 **Linkkejä:**
 
 * [Linkki sovellukseeni](http://tokito.users.cs.helsinki.fi/f1_database/)
-* [Linkki dokumentaatiooni](https://github.com/ConstantKrieg/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
+* [Linkki dokumentaatiooni](https://github.com/ConstantKrieg/Tsoha-Bootstrap/blob/master/dokumentaatio.pdf)
 
 ###Kaikkiin toteuttamiini näkymiin pääsee nettisivun kautta
 
@@ -17,6 +17,8 @@
 - Kuskin muokkaus
 - Kuskin poisto
 - Tiimin lisäys
+
+Tiimin lisäys toimii ja kontrolleriin on toteutettu suurin osa toiminnoista. Saan ne huomenna 11.10 toimimaan myös sivulla.
 
 
 
