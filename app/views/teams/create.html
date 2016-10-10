@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+		
+
+
+	<h1 class="otsikko">Add team</h1>
+
+	{% if errors%}
+		<div class="alert alert-danger">
+		{% for error in errors %}
+			<ul>
+				<li>{{ error }}</li>
+			</ul>
+		{% endfor %}
+		</div>	
+	{% endif %}		
+
+	<form method="post" action="{{base_path}}/teams">
+		<div class="form-group">
+			<label>Name</label>
+			<input type="text" name="name" class="form-control">
+		</div>
+
+		<div class="form-group">
+			<label>Wins</label>
+			<input type="text" name="wins" class="form-control">	
+		</div>
+		<div class="form-group">
+			<label>Championships</label>
+			<input type="text" name="championships" class="form-control">
+		</div>
+
+		<div class="form-button">
+        	<button type="submit" class="btn btn-danger" id="addbutton">Save</button>
+    	</div> 
+	</form>
+
+
+
+{% endblock %}

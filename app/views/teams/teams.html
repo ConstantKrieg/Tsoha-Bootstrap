@@ -1,27 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if user_logged_in %}
+        <h5 class="otsikko">Logged in as {{user_logged_in.name}}</h5>
+    {% endif %}  
+
+    {% if message %}  
+        <label class="label label-danger">{{message}}</label>
+{% endif %} 
+
+
 <h1 class="otsikko">Teams</h1>
 
 <p>
-	<a href="#" class="btn">Add team</a>
+	<a href="{{base_path}}/teams/new" class="btn btn-danger">Add team</a>
 </p>
 
 
-<table class="table table-striped">
-	<thead>
+<table class="table table-hover">
+	<thead class="tableNames">
 		<th>Name</th>
-		<th>Nationality</th>
 	</thead>
 
-	<tbody>
-		<td><a href="#">Mercedes ÀMG</a></td>
-		<td><label>GER</label></td>
+	<tbody class="tableNames">
+		{% for team in teams %}
+			<tr>
+				<td><a href="{{base_path}}/teams/{{team.id}}">{{team.name}}</a></td>
+				<td><a class="btn btn-danger btn-sm" href="{{base_path}}/teams/{{team.id}}/edit">Edit</a></td>
+			</tr>
+		{% endfor %}	
 	</tbody>
 
 
-</table>
 
+</table>
 
 
 

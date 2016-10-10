@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  
+
+  <h2>{{Team.name}}}</h2>>
+  
+  <p>
+    <form method="post" action="http://tokito.users.cs.helsinki.fi/f1_database/teams/{{Team.id}}/destroy" style="display: inline-block;">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>    
+
+
+  </p>
+
+
+  <ul class="list-group">
+    <li><strong>Team</strong>{{Team.name}}</li>
+    <li><strong>Race wins</strong>{{Team.wins}}</li>
+    <li><strong>Championships</strong>{{Team.championships}}</li>
+    
+    
+  </ul>
+
+
+
+{% endblock %}
