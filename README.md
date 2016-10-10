@@ -2,7 +2,7 @@
 
 **Linkkejä:**
 
-* [Linkki sovellukseeni](http://tokito.users.cs.helsinki.fi/f1_database/)
+* [Linkki sovellukseeni](http://tokito.users.cs.helsinki.fi/f1_database/)  käyttäjätunnus: TripleH salasana: game
 * [Linkki dokumentaatiooni](https://github.com/ConstantKrieg/Tsoha-Bootstrap/blob/master/dokumentaatio.pdf)
 
 ###Kaikkiin toteuttamiini näkymiin pääsee nettisivun kautta
