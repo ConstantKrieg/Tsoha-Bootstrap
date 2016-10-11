@@ -48,6 +48,11 @@
    $routes->post('/drivers/:id/destroy', function($id){
     DriverController::destroy($id);
   });
+  
+  $routes->post('/teams/:id/destroy', function($id){
+      TeamController::destroy($id);
+  });
+  
 
   $routes->post('/drivers', function(){
       DriverController::store();
@@ -75,6 +80,10 @@
 
   $routes->get('/drivers/:id', function($id) {
   	DriverController::show($id);
+  });
+  
+  $routes->get('/teams/:id', function($id){
+      TeamController::show($id);
   });
   
   

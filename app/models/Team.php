@@ -15,10 +15,12 @@
 
 		public static function all(){
 
-        	$query = DB::connection()->prepare('SELECT * FROM Team');
+        	$query = DB::connection()->prepare('SELECT * FROM Team WHERE  Team.user_id = :user');
+                $user = $_SESSION['user'];
+        	$query->execute(array('user' => $user));
 
-        	$query->execute();
-
+                 
+                
         	$rows = $query->fetchAll();
         	$teams = array();
 
