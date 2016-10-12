@@ -69,6 +69,9 @@
 
        
        public function destroy(){
+            $dquery = DB::connection()->prepare('DELETE FROM Driver WHERE Driver.team_name = :name');
+            $dquery->execute(array('name' => $this->name));
+
             $query = DB::connection()->prepare('DELETE FROM Team WHERE Team.id = :id');
             $query->execute(array('id' => $this->id)); 
 
@@ -81,18 +84,18 @@
         return $errors;
     }
 
-    public function validate_wins(){
-        $errors = array();
-        $errors = parent::validate_number($this->wins, 99);
+        public function validate_wins(){
+            $errors = array();
+            $errors = parent::validate_number($this->wins, 99);
 
-        return $errors;
+            return $errors;
     }
 
-    public function validate_championships(){
-        $errors = array();
-        $errors = parent::validate_number($this->championships, 99);
+        public function validate_championships(){
+            $errors = array();
+            $errors = parent::validate_number($this->championships, 99);
 
-        return $errors;
+            return $errors;
     }
 
 	}
