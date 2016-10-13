@@ -40,14 +40,11 @@ CREATE TABLE Race(
 	id SERIAL PRIMARY KEY,
 	year integer,
 	track varchar(40) REFERENCES Track(name),
+        winner integer REFERENCES Driver(id),
 	user_id integer REFERENCES Member(id)
 );
 
-CREATE TABLE Performance(
-	race_id integer REFERENCES Race(id),
-	driver_id integer REFERENCES Driver(id),
-	user_id integer REFERENCES Member(id)
-);
+
 
 
 

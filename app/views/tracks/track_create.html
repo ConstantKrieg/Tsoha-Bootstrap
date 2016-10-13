@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<h1 class="otsikko">Add track</h1>
+
+{% if errors%}
+<div class="alert alert-danger">
+    {% for error in errors %}
+    <ul>
+        <li>{{ error }}</li>
+    </ul>
+    {% endfor %}
+</div>	
+{% endif %}		
+
+<form method="post" action="{{base_path}}/tracks">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control">
+    </div>
+
+    <div class="form-button">
+        <button type="submit" class="btn btn-danger" id="addbutton">Save</button>
+    </div> 
+</form>
+
+
+
+{% endblock %}
