@@ -8,7 +8,7 @@
 
  class Driver extends BaseModel{
     
-    public $id, $num, $name, $wins, $championships, $user_id, $team_name;
+    public $id, $num, $name, $wins, $championships, $user_id, $team_id, $team_name;
 
 
     public function __construct($attributes){
@@ -44,7 +44,7 @@
                 'name' => $row['name'],
                 'wins' => $row['wins'],
                 'championships' => $row['championships'],
-                'team_name' => $row['team_name'],
+                'team_id' => $row['team_id'],
                 'user_id' => $row['user_id']
             ));
         }
@@ -68,7 +68,7 @@
                 'name' => $row['name'],
                 'wins' => $row['wins'],
                 'championships' => $row['championships'],
-                'team_name' => $row['team_name'],
+                'team_id' => $row['team_id'],
                 'user_id' => $row['user_id']
                 ));
 
@@ -83,13 +83,13 @@
     
     public function save(){
         
-        $query = DB::connection()->prepare('INSERT INTO DRIVER (num, name, wins, championships, team_name, user_id) VALUES (:num, :name, :wins, :championships, :team_name, :user_id) RETURNING id');
-        $query->execute(array('num' => $this->num,  'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships, 'team_name' => $this->team_name, 'user_id' =>$this->user_id));
+        $query = DB::connection()->prepare('INSERT INTO DRIVER (num, name, wins, championships, team_id, user_id) VALUES (:num, :name, :wins, :championships, :team_id, :user_id) RETURNING id');
+        $query->execute(array('num' => $this->num,  'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships, 'team_id' => $this->team_id, 'user_id' =>$this->user_id));
 
         $row = $query->fetch();
         $this->id = $row['id'];
 
-        
+        self::set_team_name();
        
     }
 
@@ -137,5 +137,16 @@
         return $errors;
     }
     
+
+    public function set_team_name(){
+        $team_name_query = DB::connection()->prepare('SELECT name FROM Team WHERE id = :id');
+        $team_name_query->execute(array('id' => $this->team_id));
+        
+        $row = $team_name_query->fetch();
+
+        $team_name = $row['name'];
+
+         $this->team_name = $team_name;
+    }
 
  }

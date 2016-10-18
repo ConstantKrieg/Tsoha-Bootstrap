@@ -46,8 +46,9 @@ class TeamController extends BaseController {
 
     public static function show($id) {
         $team = Team::find($id);
+        $drivers = Team::get_team_drivers($id);
 
-        View::make('/show/team_page.html', array('Team' => $team));
+        View::make('/show/team_page.html', array('Team' => $team, 'Drivers' => $drivers));
     }
 
 }

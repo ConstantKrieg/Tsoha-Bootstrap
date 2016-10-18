@@ -6,7 +6,7 @@ class Track extends BaseModel {
 
     public function __construct($attributes) {
         parent::__construct($attributes);
-        $this->validators = array('validate_name');
+        $this->validators = array('validate_name', 'validate_no_duplicates');
     }
 
     public static function all() {
@@ -20,7 +20,7 @@ class Track extends BaseModel {
         $tracks = array();
 
         foreach ($rows as $row) {
-            $tracks = new Track(array(
+            $tracks[] = new Track(array(
                 'id' => $row['id'],
                 'name' => $row['name'],
                 'user_id' => $row['user_id']
@@ -69,16 +69,30 @@ class Track extends BaseModel {
         return $errors;
     }
 
-//    public function validate_no_duplicates() {
-//        $errors = array();
-//        $tracks = self::all();
-//
-//        foreach ($tracks as $track) {
-//            if ($track->name == $this->name && $track != $this) {
-//                $errors[] = 'Track ' . $this->name . 'already exists!';
-//            }
-//        }
-//        return $errors;
-//    }
+    public function validate_no_duplicates() {
+        $errors = array();
+        $tracks = self::all();
+
+        foreach ($tracks as $track) {
+            $name = strtolower($track->getName());
+
+            $tname = strtolower($this->name);
+            $id = $track->getId();
+
+            if ($name == $tname && $id != $this->id) {
+                $errors[] = 'Track ' . $tname . ' already exists!';
+            }
+        }
+        return $errors;
+    }
+
+
+    public function getName(){
+        return $this->name;
+    }
+
+    public function getId(){
+        return $this->id;
+    }
 
 }

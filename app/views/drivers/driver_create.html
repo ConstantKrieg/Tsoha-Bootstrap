@@ -24,9 +24,9 @@
 
   	<div class="form-group">
   		<label for="sel1">Team</label>
-        <select name="team_name" class="form-control" id="sel1">
+        <select name="team_id" class="form-control" id="sel1">
           {% for team in teams %}
-            <option>{{team.name}}</option>
+            <option  value="{{team.id}}">{{team.name}}</option>
           {% endfor %}  
         </select>  		
   	</div>

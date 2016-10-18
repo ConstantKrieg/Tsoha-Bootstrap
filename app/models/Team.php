@@ -34,6 +34,9 @@ class Team extends BaseModel {
         return $teams;
     }
 
+
+
+
     public static function find($id) {
         $query = DB::connection()->prepare('SELECT * FROM Team WHERE id = :id LIMIT 1');
         $query->execute(array('id' => $id));
@@ -62,8 +65,8 @@ class Team extends BaseModel {
     }
 
     public function destroy() {
-        $dquery = DB::connection()->prepare('DELETE FROM Driver WHERE Driver.team_name = :name');
-        $dquery->execute(array('name' => $this->name));
+        $dquery = DB::connection()->prepare('DELETE FROM Driver WHERE Driver.team_id= :id');
+        $dquery->execute(array('id' => $this->id));
 
         $query = DB::connection()->prepare('DELETE FROM Team WHERE Team.id = :id');
         $query->execute(array('id' => $this->id));
@@ -88,6 +91,28 @@ class Team extends BaseModel {
         $errors = parent::validate_number($this->championships, 99);
 
         return $errors;
+    }
+
+
+    public static function get_team_drivers($id){
+        $drivers = array();
+
+        $query = DB::connection()->prepare('SELECT * FROM Driver WHERE Driver.team_id = :id');
+        $query->execute(array('id' => $id));
+        $rows = $query->fetchAll();
+
+        foreach ($rows as $row) {
+            $drivers[] = new Driver(array(
+                'id' => $row['id'],
+                'num' => $row['num'],
+                'name' => $row['name'],
+                'wins' => $row['wins'],
+                'championships' => $row['championships'],
+                'team_id' => $row['team_id'],
+                'user_id' => $row['user_id']
+                ));
+        }
+        return $drivers;
     }
 
 }

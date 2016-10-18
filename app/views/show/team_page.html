@@ -5,7 +5,7 @@
 <h2 class="otsikko">{{Team.name}}</h2>>
   
   <p>
-    <form method="post" action="http://tokito.users.cs.helsinki.fi/f1_database/teams/{{Team.id}}/destroy" style="display: inline-block;">
+    <form method="post" action="{{base_path}}/teams/{{Team.id}}/destroy" class="destroy-form" data-confirm="Deleting a team will also delete every driver from that team. Are you sure?" style="display: inline-block;">
         <button type="submit" class="btn btn-danger">Delete</button>
     </form>    
 
@@ -20,6 +20,23 @@
     
     
   </ul>
+
+
+
+  <table class="table table-hover">
+	<thead class="tableNames">
+		<th>Drivers</th>
+	</thead>
+
+	<tbody class="tableNames">
+		{% for Driver in Drivers %}
+			<tr>
+				<td><a href="{{base_path}}/drivers/{{Driver.id}}">{{Driver.name}}</a></td>
+			</tr>
+		{% endfor %}	
+	</tbody>
+
+</table>
 
 
 

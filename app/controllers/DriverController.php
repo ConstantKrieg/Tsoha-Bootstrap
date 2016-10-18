@@ -20,14 +20,18 @@ class DriverController extends BaseController {
 
     public static function create() {
         $teams = Team::all();
+        if(count($teams) == 0){
+            Redirect::to('/teams', array('message' => 'You need to have at least one team before creating a driver'));
+        }
 
         View::make('drivers/driver_create.html', array('teams' => $teams));
     }
 
     public static function show($id) {
         $driver = Driver::find($id);
+        $team = Team::find($driver->team_id);
 
-        View::make('/show/driver_page.html', array('Driver' => $driver));
+        View::make('/show/driver_page.html', array('Driver' => $driver, 'Team' => $team));
     }
 
     public static function edit($id) {
@@ -91,9 +95,10 @@ class DriverController extends BaseController {
 
 
 
+
         $driver = new Driver(array(
             'num' => $params['num'],
-            'team_name' => $params['team_name'],
+            'team_id' => $params['team_id'],
             'name' => $params['name'],
             'wins' => $params['wins'],
             'championships' => $params['championships'],
