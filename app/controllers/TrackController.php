@@ -31,8 +31,26 @@ class TrackController extends BaseController {
         }
     }
     
+    
+    
     public static function create() {
         View::make('tracks/track_create.html');
+    }
+    
+    
+    public static function show($id) {
+        $track = Track::find($id);
+        
+        View::make('/show/track_page.html', array('Track' => $track));
+        
+    }
+    
+    
+    public static function destroy($id){
+        $team = new Team(array('id' => $id));
+        $team->destroy();
+        
+        Redirect::to('/tracks', array('message' => 'Track deleted'));
     }
 
 }

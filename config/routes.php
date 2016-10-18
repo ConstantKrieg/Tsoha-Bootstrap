@@ -37,8 +37,12 @@ $routes->get('/drivers', function() {
 });
 
 
-$routes->get('teams/:id/edit', function($id) {
+$routes->get('/teams/:id/edit', function($id) {
     TeamController::edit($id);
+});
+
+$routes->post('/teams/:id/edit', function($id){
+    TeamController::update($id); 
 });
 
 
@@ -68,7 +72,7 @@ $routes->post('/teams', function() {
     TeamController::store();
 });
 
-$routes->post('/tracks', function(){
+$routes->post('/tracks', function() {
     TrackController::store();
 });
 
@@ -98,6 +102,10 @@ $routes->get('/drivers/:id', function($id) {
 
 $routes->get('/teams/:id', function($id) {
     TeamController::show($id);
+});
+
+$routes->get('/tracks/:id', function($id) {
+    TrackController::show($id);
 });
 
 

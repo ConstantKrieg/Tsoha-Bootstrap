@@ -40,7 +40,7 @@ class Track extends BaseModel {
             $track = new Track(array(
                 'id' => $row['id'],
                 'name' => $row['name'],
-                'user_id' => $row('user_id')
+                'user_id' => $row['user_id']
             ));
             return $track;
         }

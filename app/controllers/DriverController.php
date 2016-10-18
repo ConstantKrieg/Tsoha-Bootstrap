@@ -58,7 +58,7 @@ class DriverController extends BaseController {
         );
         
         
-        Kint::dump($params);
+        
         
         $driver = new Driver($attributes);
 

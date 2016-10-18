@@ -10,6 +10,11 @@ class TeamController extends BaseController {
 
         View::make('/teams/teams.html', array('teams' => $teams, 'user' => $user));
     }
+    
+    public static function edit($id){
+        $team = Team::find($id);
+        View::make('/teams/team_edit.html', array('Team' => $team));
+    }
 
     public static function store() {
         $params = $_POST;
@@ -31,6 +36,34 @@ class TeamController extends BaseController {
             $team->save();
             Redirect::to('/teams/' . $team->id, array('message' => 'Team added!'));
         }
+    }
+    
+    public static function update($id) {
+        $params = $_POST;
+        
+        
+        $tiimi = Team::find($id);
+        $id = $tiimi->id;
+        
+        $attributes = array(
+            'id' => $id,
+            'name' => $params['name'],
+            'wins' => $params['wins'],
+            'championships' => $params['championships']
+        );
+        
+        
+        $team = new Team($attributes);
+        
+        $errors = $team->errors();
+        
+        if(count($errors) > 0){
+            View::make('/teams/edit.html', array('errors' => $errors, 'attributes' => $attributes));
+        } else {
+            $team->update();
+            Redirect::to('/teams/' . $team->id, array('message' => 'Team updated!'));
+        }
+        
     }
 
     public static function create() {

@@ -71,6 +71,12 @@ class Team extends BaseModel {
         $query = DB::connection()->prepare('DELETE FROM Team WHERE Team.id = :id');
         $query->execute(array('id' => $this->id));
     }
+    
+    
+    public function update(){
+        $query = DB::connection()->prepare('UPDATE Team SET name = :name, wins = :wins, championships = :championships  WHERE id = :id');
+        $query->execute(array('id' => $this->id, 'name' => $this->name, 'wins' =>  $this->wins, 'championships' => $this->championships));
+    }
 
     public function validate_name() {
         $errors = array();

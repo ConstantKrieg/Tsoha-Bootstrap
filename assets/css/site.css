@@ -33,6 +33,10 @@ body{
     color: white;
 }
 
+#large{
+    font-size: 40px;
+}
+
 figure.overlay{
     background:  #660000;
     float: left;
