@@ -7,14 +7,8 @@ class DriverController extends BaseController {
         self::check_logged_in();
         $user = self::get_user_logged_in();
         
-        $params = $_GET;
-        $options = array('user_id' => $user->id);
         
-        if(isset($params['search'])){
-            $options['search'] = $params['search'];
-        }
-        
-        $drivers = Driver:: all($options);
+        $drivers = Driver:: all();
         View::make('drivers/drivers.html', array('drivers' => $drivers, 'user_logged_in' => $user));
     }
 

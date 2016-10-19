@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h2 class="otsikko">{{Track.name}}</h2>
+
+
+{% if message %}  
+<label class="label label-danger">{{message}}</label>
+{% endif %}  
+
+
+
+<p>
+<form method="post" action="{{base_path}}/races/{{Race.id}}/destroy" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+<a href="http://tokito.users.cs.helsinki.fi/f1_database/drivers/{{Track.id}}/edit" class="btn btn-default">Edit</a>
+</p>
+
+
+<ul class="list-group">
+    
+    <li><strong>Name</strong> {{Race.name}}</li>
+    <li><strong>Track</strong> {{Track.name}}</li>
+    <li><strong>Year</strong> {{Race.year}}</li>
+    <li><strong>Winner</strong> {{Winner.name}}</li>
+
+    
+    
+  </ul>
+
+
+
+  
+
+
+
+
+
+{% endblock %}

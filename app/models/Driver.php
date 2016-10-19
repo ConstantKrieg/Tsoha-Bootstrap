@@ -17,22 +17,11 @@
     }
 
 
-    public static function all($options){
+    public static function all(){
 
-        $query_string = 'SELECT * FROM Driver WHERE user_id = :user_id';
-        $options = array('user_id' => $options['user_id']);
-        
-        if(isset($options['search'])){
-            $query_string .= ' AND name LIKE :like';
-            $options['like'] = '%' . $options['search'] . '%';
-        }
-        
-        
-        
-        
-        $query = DB::connection()->prepare($query_string);
-        $query->execute($options);
-
+        $query = DB::connection()->prepare('SELECT * FROM Driver WHERE user_id = :user_id');
+        $user = $_SESSION['user'];
+        $query->execute(array('user_id' => $user));
         $rows = $query->fetchAll();
         $drivers = array();
 
