@@ -57,8 +57,11 @@ class Race extends BaseModel {
 
         $row = $query->fetch();
         $this->id = $row['id'];
-        
-        
+    }
+    
+    public function update(){
+        $query = DB::connection()->prepare('UPDATE RACE SET name = :name, year = :year, track = :track, winner = :winner  WHERE id = :id');
+        $query->execute(array('id' => $this->id, 'name' => $this->name, 'year' => $this->year, 'track' =>  $this->track, 'winner' => $this->winner));
     }
     
     

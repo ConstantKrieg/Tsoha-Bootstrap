@@ -61,6 +61,11 @@ class Track extends BaseModel {
         $query = DB::connection()->prepare('DELETE From Track WHERE Track.id = :id');
         $query->execute(array('id' => $this->id));
     }
+    
+    public function update(){
+        $query = DB::connection()->prepare('UPDATE TRACK SET name = :name  WHERE id = :id');
+        $query->execute(array('id' => $this->id, 'name' => $this->name));
+    }
 
     public function validate_name() {
         $errors = array();

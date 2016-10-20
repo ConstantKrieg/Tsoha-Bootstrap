@@ -2,7 +2,7 @@
 {% block content %}
 
 
-<h1>Edit</h1>
+<h1 class="otsikko">Edit</h1>
 
 
 {% if errors %}
@@ -16,32 +16,33 @@
 {% endif %}
 
 
-<form method="post" action="http://tokito.users.cs.helsinki.fi/f1_database/drivers/{{Driver.id}}/edit" style="display: inline-block;">
+<form method="post" action="{{base_path}}/drivers/{{Driver.id}}/edit">
     <div class="form-group">
         <label>Name</label>
-        <input type="text" name="name" value="{{Driver.name}}" class="form-control">
+        <input type="text" name="name"  class="form-control" value="{{Driver.name}}">
     </div>
 
     <div class="form-group">
         <label>Race wins</label>
-        <input type="text" name="wins" value="{{Driver.wins}}" class="form-control">
+        <input type="text" name="wins"  class="form-control" value="{{Driver.wins}}">
     </div>
 
     <div class="form-group">
         <label>Championships</label>
-        <input type="text"name="championships" value="{{Driver.championships}}" class="form-control" name="championships">
+        <input type="text"name="championships"  class="form-control" name="championships" value="{{Driver.championships}}">
     </div>
 
 
 
     <div class="form-group">
         <label>Number</label>
-        <input type="text" name="num" value="{{Driver.num}}" class="form-control">
+        <input type="text" name="num"  class="form-control" value="{{Driver.num}}">
 
     </div>
 
-    <button type="submit" class="btn btn-danger">Save</button>
-
+    <div class="form-button">    
+        <button type="submit" class="btn btn-danger" id="addbutton">Save</button>
+    </div>    
 
 
 </form>

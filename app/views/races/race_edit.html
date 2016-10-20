@@ -16,7 +16,7 @@
 {% endif %}
 
 
-<form method="post" action="{{base_path}}/races/{{Race.id}}/edit" style="display: inline-block;">
+<form method="post" action="{{base_path}}/races/{{Race.id}}/edit">
     <div class="form-group">
         <label>Name</label>
         <input type="text" name="name" value="{{Race.name}}" class="form-control">
@@ -40,12 +40,18 @@
     </div>
 
     <div class="form-group">
+        <label for="sel1">Winner</label>
         <select name="winner" class="form-control" id="sel1">
         {% for driver in drivers %}
             <option  value="{{driver.id}}">{{driver.name}}</option>
         {% endfor %}  
         </select>   
     </div>
+    
+    <div class="form-button">    
+        <button type="submit" class="btn btn-danger" id="addbutton">Save</button>
+    </div> 
+    
 
 
 </form>

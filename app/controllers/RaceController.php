@@ -13,7 +13,10 @@ class RaceController extends BaseController {
     
     public static function edit($id){
         $race = Race::find($id);
-        View::make('/races/races.html', array('Race' => $race));
+        $tracks = Track::all();
+        $drivers = Driver::all();
+        
+        View::make('/races/race_edit.html', array('Race' => $race, 'tracks' => $tracks, 'drivers' => $drivers));
     }
 
     public static function store() {
@@ -32,7 +35,9 @@ class RaceController extends BaseController {
 
 
         if (count($errors) > 0) {
-            View::make('races/race_create.html', array('errors' => $errors));
+            $tracks = Track::all();
+            $drivers = Driver::all();
+            View::make('races/race_create.html', array('errors' => $errors, 'tracks' => $tracks, 'drivers' => $drivers));
         } else {
             $race->save();
             Redirect::to('/races/' . $race->id, array('message' => 'Race added!'));
@@ -60,9 +65,9 @@ class RaceController extends BaseController {
         $errors = $race->errors();
         
         if(count($errors) > 0){
-            View::make('/races/edit.html', array('errors' => $errors, 'attributes' => $attributes));
+            View::make('/races/race_edit.html', array('errors' => $errors, 'attributes' => $attributes));
         } else {
-            $team->update();
+            $race->update();
             Redirect::to('/races/' . $race->id, array('message' => 'Race updated!'));
         }
         

@@ -13,7 +13,7 @@
 </div>
 {% endif %}
 
-<form method="post" action="{{base_path}}/teams/{{Team.id}}/edit" style="display: inline-block;">
+<form method="post" action="{{base_path}}/teams/{{Team.id}}/edit" >
     <div class="form-group">
         <label>Name</label>
         <input type="text" name="name" value="{{Team.name}}" class="form-control">
@@ -30,7 +30,9 @@
         <input type="text" class="form-control" name="wins" value="{{Team.wins}}">
     </div>
 
-    <button type="submit" class="btn btn-danger">Save</button>
+    <div class="form-button">    
+        <button type="submit" class="btn btn-danger" id="addbutton">Save</button>
+    </div> 
 
 </form>
 

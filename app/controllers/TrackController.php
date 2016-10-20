@@ -31,6 +31,37 @@ class TrackController extends BaseController {
         }
     }
     
+    public static function edit($id){
+       
+        $track = Track::find($id);
+        View::make('/tracks/track_edit.html', array('Track' => $track));
+    }
+    
+    public static function update($id) {
+        $params = $_POST;
+        
+        
+        $rata = Track::find($id);
+        $id = $rata->id;
+        
+        $attributes = array(
+            'id' => $id,
+            'name' => $params['name']
+        );
+        
+        
+        $track = new Track($attributes);
+        
+        $errors = $race->errors();
+        
+        if(count($errors) > 0){
+            View::make('/track/track_edit.html', array('errors' => $errors, 'attributes' => $attributes));
+        } else {
+            $track->update();
+            Redirect::to('/tracks/' . $track->id , array('message' => 'Track updated!'));
+        }
+        
+    }
     
     
     public static function create() {
