@@ -78,7 +78,7 @@
         $row = $query->fetch();
         $this->id = $row['id'];
 
-        self::set_team_name();
+
        
     }
 
@@ -91,6 +91,9 @@
     }
 
     public function destroy(){
+        $rquery = DB::connection()->prepare('DELETE FROM Race WHERE Race.winner = :id');
+        $rquery->execute(array('id' => $this->id));
+
         $query = DB::connection()->prepare('DELETE From Driver WHERE Driver.id = :id');
         $query->execute(array('id' => $this->id));
     }
@@ -127,15 +130,30 @@
     }
     
 
-    public function set_team_name(){
-        $team_name_query = DB::connection()->prepare('SELECT name FROM Team WHERE id = :id');
-        $team_name_query->execute(array('id' => $this->team_id));
-        
-        $row = $team_name_query->fetch();
+   public static function get_race_victories($id){
+        $user = $_SESSION['user'];
+        $query = DB::connection()->prepare('SELECT * FROM Race WHERE winner = :id AND user_id = :uid');
+        $query->execute(array('id' => $id, 'uid' => $user));
+        $rows = $query->fetchAll();
 
-        $team_name = $row['name'];
+        $races = array();
 
-         $this->team_name = $team_name;
-    }
+        foreach ($rows as $row) {
+            $races[] = new Race(array(
+                'id' => $row['id'],
+                'name' => $row['name'],
+                'year' => $row['year'],
+                'track' => $row['track'],
+                'winner' => $row['winner'],
+                'user_id' => $row['user_id']
+                ));
+        }
+
+        return $races;
+
+
+   }
+
+
 
  }

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<h1 class="otsikko" id="loginotsikko">  REGISTER</h1>
+
+
+{% if errors%}
+        <div class="alert alert-primary">
+        {% for error in errors %}
+            <ul>
+                <li>{{ error }}</li>
+            </ul>
+        {% endfor %}
+        </div>  
+    {% endif %}
+
+
+    {% if message %}  
+    <h3><span class="label label-danger">{{message}}</span>></h3>
+    {% endif %} 
+
+<form class="loginform"   method="post" action="{{base_path}}/register">
+    <div class="form-group">
+        <label id="loginlabel">User name</label>
+        <input type="text" class="form-control" id="login" name="name">
+    </div>
+
+
+    <div class="form-group">
+        <label id="loginlabel">Password</label>
+        <input type="password" class="form-control" id="login" name="password">
+    </div>
+
+    <div class="form-group">
+        <label id="loginlabel">Password again</label>
+        <input type="password" class="form-control" id="login" name="password2">
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Register</button>
+    </div>
+</form>
+
+
+
+{% endblock %}

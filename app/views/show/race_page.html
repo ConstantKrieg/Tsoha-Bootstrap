@@ -2,7 +2,7 @@
 {% block content %}
 
 
-<h2 class="otsikko">{{Track.name}}</h2>
+<h2  align="center"> <font color="white">   {{Race.name}}  {{Race.year}}</font></h2>
 
 
 {% if message %}  
@@ -10,16 +10,19 @@
 {% endif %}  
 
 
+<div align="center" style="border:3px white">
+	<p>
+		<form method="post" action="{{base_path}}/races/{{Race.id}}/destroy" style="display: inline-block;">
+    		<button type="submit" class="btn btn-danger">Delete</button>
+		</form>
+			<a href="{{base_path}}/races/{{Race.id}}/edit" class="btn btn-default">Edit</a>
+	</p>
 
-<p>
-<form method="post" action="{{base_path}}/races/{{Race.id}}/destroy" style="display: inline-block;">
-    <button type="submit" class="btn btn-danger">Delete</button>
-</form>
-<a href="{{base_path}}/races/{{Race.id}}/edit" class="btn btn-default">Edit</a>
-</p>
+</div>
 
+<div align="center">
 
-<ul class="list-group">
+<ul  class="list-group">
     
     <li><strong>Name</strong> {{Race.name}}</li>
     <li><strong>Track</strong> {{Track.name}}</li>
@@ -30,6 +33,7 @@
     
   </ul>
 
+</div>
 
 
   

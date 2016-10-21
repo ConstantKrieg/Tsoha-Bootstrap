@@ -102,9 +102,10 @@ class Team extends BaseModel {
 
     public static function get_team_drivers($id){
         $drivers = array();
+        $user = $_SESSION['user'];
 
-        $query = DB::connection()->prepare('SELECT * FROM Driver WHERE Driver.team_id = :id');
-        $query->execute(array('id' => $id));
+        $query = DB::connection()->prepare('SELECT * FROM Driver WHERE Driver.team_id = :id AND Driver.user_id = :uid');
+        $query->execute(array('id' => $id, 'uid' => $user));
         $rows = $query->fetchAll();
 
         foreach ($rows as $row) {

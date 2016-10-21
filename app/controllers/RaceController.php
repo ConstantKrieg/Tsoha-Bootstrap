@@ -77,6 +77,14 @@ class RaceController extends BaseController {
         $tracks = Track::all();
         $drivers = Driver::all();
 
+        if(count($drivers) == 0){
+            Redirect::to('/drivers', array('message' => 'You need at least one driver before creating a race'));
+        } 
+
+        if (count($tracks) == 0){
+            Redirect::to('/tracks',  array('message' => 'You need at least one track before creating a race'));
+        }
+
         View::make('races/race_create.html', array('tracks' => $tracks, 'drivers' => $drivers));
     }
 

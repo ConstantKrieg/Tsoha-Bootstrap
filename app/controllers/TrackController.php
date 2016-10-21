@@ -52,7 +52,7 @@ class TrackController extends BaseController {
         
         $track = new Track($attributes);
         
-        $errors = $race->errors();
+        $errors = $track->errors();
         
         if(count($errors) > 0){
             View::make('/track/track_edit.html', array('errors' => $errors, 'attributes' => $attributes));
@@ -78,8 +78,8 @@ class TrackController extends BaseController {
     
     
     public static function destroy($id){
-        $team = new Team(array('id' => $id));
-        $team->destroy();
+        $track = new Track(array('id' => $id));
+        $track->destroy();
         
         Redirect::to('/tracks', array('message' => 'Track deleted'));
     }

@@ -58,6 +58,9 @@ class Track extends BaseModel {
     }
 
     public function destroy() {
+        $rquery = DB::connection()->prepare('DELETE FROM Race WHERE Race.track = :id');
+        $rquery->execute(array('id' => $this->id));
+
         $query = DB::connection()->prepare('DELETE From Track WHERE Track.id = :id');
         $query->execute(array('id' => $this->id));
     }

@@ -7,7 +7,7 @@
     {% endif %}  
 
     {% if message %}  
-        <label class="label label-danger">{{message}}</label>
+        <h3><span class="label label-danger">{{message}}</span>></h3>
     {% endif %}    
 
 <h1 class="otsikko">Drivers</h1>
@@ -16,21 +16,13 @@
     <a href="{{base_path}}/drivers/new" class="btn btn-success">Add driver</a>
 </p>
 
-<form method="get" action="" class="form-inline">
-    <div class="form-group">
-        <input type="text" name="search" class="form-control" placeholder="Keyword">
-        <button type="submit" class="btn btn-danger">Search</button>
-    </div>
-    
-    
-       
-</form>
+
 
 
 <table class="table table-hover">
     <thead class="tableNames">
         <th>Name</th>
-        <th>Team</th>
+        
         <th>Number</th>
     </thead>
 
@@ -38,7 +30,6 @@
     {% for driver in drivers%}
     <tr>
         <td><a href="{{base_path}}/drivers/{{driver.id}}">{{driver.name}}</td>
-        <td>{{driver.team_name}}</td>
         <td>{{driver.num}}</td>
         <td><a class="btn btn-danger btn-sm" href="{{base_path}}/drivers/{{driver.num}}/edit">Edit</a></td>
     </tr>

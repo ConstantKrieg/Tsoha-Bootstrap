@@ -24,6 +24,13 @@ body{
     color: white;
 }
 
+
+
+
+
+
+
+
 #login{
     max-width: 340px;
 }
@@ -48,6 +55,10 @@ figure.overlay{
 
 }
 
+.list-group{
+
+}
+
 ul li{
     color: white;
 }
@@ -63,13 +74,15 @@ ul li{
 figure.overlay figcaption{
     position: relative;
     top: 40%;
-    left: 10%;
+    left: 35%;
     color: white;
 }
 
 figure.overlay figcaption h2 {
     font-weight: 600;
     font-family: 'Impact', sans-serif;
+    position: relative;
+
 
 }
 
@@ -93,7 +106,7 @@ figure.overlay figcaption h2 {
 figure.overlay img{
     opacity: 0.4;
     position: relative;
-    left: 12%;
+    
     
 }
 

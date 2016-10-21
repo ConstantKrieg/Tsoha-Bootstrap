@@ -2,11 +2,18 @@
 {% block content %}
 
 
-<h1 class="otsikko" id="loginotsikko">  LOG IN</h1>
+<h1 class="otsikko" id="loginotsikko">    LOG IN</h1>
     
-    
+{% if errors%}
+    <div class="alert alert-danger">
+        {% for error in errors %}
+            <ul>
+                <li>{{ error }}</li>
+            </ul>
+        {% endfor %}
+{% endif %}        
 
-<form class="loginform" method="post" action="{{base_path}}/login">
+<form class="loginform" id="kirjautuminen" method="post" action="{{base_path}}/login">
     <div class="form-group">
         <label id="loginlabel">User name</label>
         <input type="text" class="form-control" id="login" name="username">
@@ -23,6 +30,8 @@
         <button type="submit" class="btn btn-danger">Log in</button>
     </div>
 </form>
+
+
 
 
 

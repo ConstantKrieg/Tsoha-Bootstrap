@@ -173,4 +173,12 @@ $routes->post('/logout', function() {
     UserController::logout();
 });
 
+$routes->get('/register', function(){
+    UserController::register();
+});
+
+$routes->post('/register', function(){
+    UserController::store();
+});
+
 

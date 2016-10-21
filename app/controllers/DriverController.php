@@ -24,8 +24,9 @@ class DriverController extends BaseController {
     public static function show($id) {
         $driver = Driver::find($id);
         $team = Team::find($driver->team_id);
+        $races = Driver::get_race_victories($id);
 
-        View::make('/show/driver_page.html', array('Driver' => $driver, 'Team' => $team));
+        View::make('/show/driver_page.html', array('Driver' => $driver, 'Team' => $team, 'Races' => $races));
     }
 
     public static function edit($id) {
